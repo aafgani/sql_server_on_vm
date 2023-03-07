@@ -3,34 +3,34 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "existingVirtualNetworkName": {
-      "value": "#arm_vnet" // TODO: Fill in parameter value
+      "value": "#arm_vnet#" // TODO: Fill in parameter value
     },
     "existingSubnetName": {
-      "value": "#arm_subnet" // TODO: Fill in parameter value
+      "value": "#arm_subnet#" // TODO: Fill in parameter value
     },
     "adminUsername": {
-      "value": "#arm_adm_username" // TODO: Fill in parameter value
+      "value": "#arm_adm_username#" // TODO: Fill in parameter value
     },
     "adminPassword": {
-      "value": "#arm_adm_passwd" // TODO: Fill in parameter value
+      "value": "#arm_adm_passwd#" // TODO: Fill in parameter value
     },
     "virtualMachineName": {
-      "value": "#arm_vmname"
+      "value": "#arm_vmname#"
     },
     "virtualMachineSize": {
-      "value": "#arm_vmsize"
+      "value": "#arm_vmsize#"
     },
     "existingVnetResourceGroup": {
-      "value": "#arm_vnet_resourcegroup" // TODO: Fill in parameter value
+      "value": "#arm_vnet_resourcegroup#" // TODO: Fill in parameter value
     },
     "imageOffer": {
-      "value": "#arm_image"
+      "value": "#arm_image#"
     },
     "sqlSku": {
-      "value": "#arm_sku"
+      "value": "#arm_sku#"
     },
     "storageWorkloadType": {
-      "value": "#arm_storage_type"
+      "value": "#arm_storage_type#"
     },
     "sqlDataDisksCount": {
       "value": 1
@@ -45,7 +45,7 @@
       "value": "G:\\SQLLog"
     },
     "location": {
-      "value": "#arm_location" // TODO: Fill in parameter value
+      "value": "#arm_location#" // TODO: Fill in parameter value
     }
   }
 }

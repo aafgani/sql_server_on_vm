@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "existingVirtualNetworkName": {
+      "value": "#arm_vnet" // TODO: Fill in parameter value
+    },
+    "existingSubnetName": {
+      "value": "#arm_subnet" // TODO: Fill in parameter value
+    },
+    "adminUsername": {
+      "value": "#arm_adm_username" // TODO: Fill in parameter value
+    },
+    "adminPassword": {
+      "value": "#arm_adm_passwd" // TODO: Fill in parameter value
+    },
+    "virtualMachineName": {
+      "value": "#arm_vmname"
+    },
+    "virtualMachineSize": {
+      "value": "#arm_vmsize"
+    },
+    "existingVnetResourceGroup": {
+      "value": "#arm_vnet_resourcegroup" // TODO: Fill in parameter value
+    },
+    "imageOffer": {
+      "value": "#arm_image"
+    },
+    "sqlSku": {
+      "value": "#arm_sku"
+    },
+    "storageWorkloadType": {
+      "value": "#arm_storage_type"
+    },
+    "sqlDataDisksCount": {
+      "value": 1
+    },
+    "dataPath": {
+      "value": "F:\\SQLData"
+    },
+    "sqlLogDisksCount": {
+      "value": 1
+    },
+    "logPath": {
+      "value": "G:\\SQLLog"
+    },
+    "location": {
+      "value": "#arm_location" // TODO: Fill in parameter value
+    }
+  }
+}

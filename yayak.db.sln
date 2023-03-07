@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "yayak.db", "yayak.db\yayak.db.deployproj", "{98E5EF4D-B3E4-4F93-8066-26AF57DE7A7A}"
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "yayak.db.template", "yayak.db.template\yayak.db.template.deployproj", "{98E5EF4D-B3E4-4F93-8066-26AF57DE7A7A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{6A1DDEC7-CFBB-4CEB-A68D-422D31029676}"
 EndProject

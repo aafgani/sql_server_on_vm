@@ -1,0 +1,68 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  dbProjName : ''
+  armTemplateFolder : 'yayak.db.template'
+
+stages:
+- stage: 'Build'
+  displayName: 'Build The Application'
+  jobs:
+    - job: 'Copy_ARM_Template'
+      displayName: 'Copy ARM Template'
+      pool:
+       vmImage: ubuntu-latest
+      steps:
+        - task : CopyFiles@2
+          inputs:
+            SourceFolder: '$(armTemplateFolder)/'
+            Contents: 'azuredeploy*.json'
+            TargetFolder: '$(Build.artifactStagingDirectory)/ARM'
+        - task: PublishBuildArtifacts@1
+          inputs:
+           pathToPublish: $(Build.ArtifactStagingDirectory)
+           publishLocation: 'Container'
+
+- stage: 'Dev'
+  displayName: 'Deploy to Dev'
+  variables:
+    - group: 'DEV'
+  jobs: 
+   - deployment: 
+     pool:
+       vmImage: 'windows-2019'
+     environment: 'Dev'
+     strategy:
+        runOnce:
+          deploy:
+           steps:
+              - download: current
+                artifact: drop
+              - task: replacetokens@5
+                inputs:
+                  rootDirectory: '$(Pipeline.Workspace)/drop/ARM'
+                  targetFiles: 'azuredeploy.parameters.$(env).json'
+                  encoding: 'auto'
+                  tokenPattern: 'custom'
+                  tokenPrefix: '#'
+                  tokenSuffix: '#'
+                  writeBOM: true
+                  actionOnMissing: 'warn'
+                  keepToken: false
+                  actionOnNoFiles: 'continue'
+                  enableTransforms: false
+                  enableRecursion: false
+                  useLegacyPattern: false
+                  enableTelemetry: true
+              

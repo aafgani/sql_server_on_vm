@@ -63,6 +63,18 @@ stages:
                   actionOnNoFiles: 'continue'
                   enableTransforms: false
                   enableRecursion: false
+              - task: AzureResourceManagerTemplateDeployment@3
+                inputs:
+                  deploymentScope: 'Resource Group'
+                  azureResourceManagerConnection: 'Azure subscription 1(07dbce66-6476-4471-a7ce-a2ff48fe684b)'
+                  subscriptionId: '07dbce66-6476-4471-a7ce-a2ff48fe684b'
+                  action: 'Create Or Update Resource Group'
+                  resourceGroupName: '$(arm_ResourceGroupName)'
+                  location: 'Southeast Asia'
+                  templateLocation: 'Linked artifact'
+                  csmFile: '$(Pipeline.Workspace)/drop/ARM/azuredeploy.json'
+                  csmParametersFile: '$(Pipeline.Workspace)/drop/ARM/azuredeploy.parameters.dev.json'
+                  deploymentMode: 'Incremental'
                   useLegacyPattern: false
                   enableTelemetry: true
               

@@ -21,7 +21,7 @@
       "value": "#arm_vmsize#"
     },
     "existingVnetResourceGroup": {
-      "value": "#arm_vnet_resourcegroup#" // TODO: Fill in parameter value
+      "value": "#arm_ResourceGroupName#" // TODO: Fill in parameter value
     },
     "imageOffer": {
       "value": "#arm_image#"
